@@ -1,0 +1,76 @@
+@if (!isLoggedIn) {
+
+  <app-login
+    (loginSuccess)="onLoginSuccess()">
+  </app-login>
+
+} @else {
+
+  <button
+    class="logout-btn"
+    (click)="logout()">
+    Logout
+  </button>
+
+  <h1>Product Management System</h1>
+
+  <h3>Total Products: {{ products().length }}</h3>
+
+  <h2>Add Product</h2>
+
+  <div>
+
+    <label>ID</label>
+    <input
+      type="number"
+      [(ngModel)]="productId">
+
+    <br><br>
+
+    <label>Name</label>
+    <input
+      type="text"
+      [(ngModel)]="productName">
+
+    <br><br>
+
+    <label>Price</label>
+    <input
+      type="number"
+      [(ngModel)]="productPrice">
+
+    <br><br>
+
+    <button (click)="addProduct()">
+      Add Product
+    </button>
+
+  </div>
+
+  <br><br>
+
+  <table border="1">
+
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (product of products(); track product.id) {
+
+        <tr>
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+        </tr>
+
+      }
+    </tbody>
+
+  </table>
+
+}

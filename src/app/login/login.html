@@ -1,0 +1,27 @@
+<div class="login-container">
+
+  <h2>Product Management Login</h2>
+
+  <div>
+    <label>Username</label>
+    <input
+      type="text"
+      [(ngModel)]="username">
+  </div>
+
+  <br>
+
+  <div>
+    <label>Password</label>
+    <input
+      type="password"
+      [(ngModel)]="password">
+  </div>
+
+  <br>
+
+  <button (click)="login()">
+    Login
+  </button>
+
+</div>
